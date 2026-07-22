@@ -7,163 +7,18 @@
   <meta name="description" content="Hyaecord is a performance-focused, native-feeling Discord desktop client for Linux and Windows, compatible with the Equicord and Vencord plugin ecosystems." />
   <meta property="og:title" content="Hyaecord" />
   <meta property="og:description" content="A performance-focused, native-feeling Discord desktop client for Linux and Windows." />
-  <meta property="og:image" content="https://hyaecord.vercel.app/assets/logo.svg" />
-  <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
-  <style>
-    /* Palette taken directly from the logo:
-       amber coat #c88633 · spot brown #2e1d11 · sticker white #fefefe
-       shadow red #e44550 · tongue pink #d4495f · brand cream #f1e9d5 */
-    :root {
-      --amber: #c88633;
-      --brown: #2e1d11;
-      --white: #fefefe;
-      --red: #e44550;
-      --pink: #d4495f;
-      --cream: #f1e9d5;
-
-      /* dark theme (default) — derived from spot brown */
-      --bg: #201409;
-      --bg-raise: #2e1d11;
-      --bg-card: #291a0e;
-      --border: #4a3620;
-      --text: #f1e9d5;
-      --text-dim: #cbbfa4;
-      --heading-accent: #c88633;   /* 5.9:1 on --bg */
-      --link: #e0a352;             /* 7.4:1 on --bg */
-      --btn-red: #c93341;          /* deep logo red; 5.2:1 with white text */
-      --btn-red-text: #fefefe;
-      --btn-amber-text: #2e1d11;   /* 5.3:1 on amber */
-    }
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #f1e9d5;
-        --bg-raise: #f7f1e2;
-        --bg-card: #fefefe;
-        --border: #d8cbaa;
-        --text: #2e1d11;
-        --text-dim: #5f5240;
-        --heading-accent: #8a5a17;  /* dark amber, 4.9:1 on cream */
-        --link: #a03340;            /* dark red-pink, 5.6:1 on cream */
-        --btn-red: #c93341;
-        --btn-red-text: #fefefe;
-        --btn-amber-text: #2e1d11;
-      }
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-    }
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Cantarell, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
-    a { color: var(--link); }
-    .wrap { max-width: 1060px; margin: 0 auto; padding: 0 1.25rem; }
-
-    /* ---------- nav ---------- */
-    .nav {
-      position: sticky; top: 0; z-index: 10;
-      background: var(--bg-raise);
-      border-bottom: 2px solid var(--amber);
-    }
-    .nav-inner {
-      display: flex; align-items: center; gap: 1.25rem;
-      padding: 0.65rem 1.25rem; max-width: 1060px; margin: 0 auto;
-    }
-    .nav-brand { display: flex; align-items: center; gap: 0.55rem; font-weight: 800; font-size: 1.1rem; color: var(--text); text-decoration: none; }
-    .nav-brand img { width: 30px; height: 30px; }
-    .nav-links { display: flex; gap: 1.1rem; margin-left: auto; align-items: center; flex-wrap: wrap; }
-    .nav-links a { color: var(--text); text-decoration: none; font-weight: 600; font-size: 0.95rem; }
-    .nav-links a:hover { color: var(--heading-accent); text-decoration: underline; }
-    .nav-cta {
-      background: var(--btn-red);
-      color: var(--btn-red-text) !important; padding: 0.45rem 1.1rem; border-radius: 999px; font-weight: 700;
-    }
-    .nav-cta:hover { background: var(--pink); color: var(--brown) !important; text-decoration: none !important; }
-
-    /* ---------- hero ---------- */
-    .hero { text-align: center; padding: 5rem 1.25rem 4rem; border-bottom: 1px solid var(--border); }
-    .hero img.logo { width: 140px; height: 140px; }
-    .hero h1 {
-      margin-top: 1.1rem;
-      font-size: clamp(2.6rem, 7vw, 4.2rem);
-      letter-spacing: -0.03em; line-height: 1.08; font-weight: 900;
-    }
-    .hero h1 .accent-line { color: var(--heading-accent); }
-    .hero p.tag {
-      color: var(--text-dim); font-size: 1.2rem; max-width: 36rem; margin: 1rem auto 0;
-    }
-    .hero .buttons { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-top: 2.2rem; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.7rem; border-radius: 999px; font-weight: 700; font-size: 1rem;
-      text-decoration: none; border: 2px solid var(--border);
-      color: var(--text); background: var(--bg-card);
-      transition: transform 140ms ease, border-color 140ms ease, background-color 140ms ease;
-    }
-    .btn:hover { transform: translateY(-2px); border-color: var(--amber); }
-    .btn.primary { background: var(--amber); border-color: var(--amber); color: var(--btn-amber-text); }
-    .btn.primary:hover { border-color: var(--brown); }
-    .btn.discord { background: var(--btn-red); border-color: var(--btn-red); color: var(--btn-red-text); }
-    .btn.discord:hover { border-color: var(--brown); }
-    .hero .sub { margin-top: 1rem; color: var(--text-dim); font-size: 0.88rem; }
-
-    /* ---------- sections ---------- */
-    section { padding: 3.2rem 0; }
-    section h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); letter-spacing: -0.02em; margin-bottom: 0.4rem; }
-    section .lead { color: var(--text-dim); margin-bottom: 1.75rem; max-width: 44rem; }
-    .accent { color: var(--heading-accent); }
-
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.1rem; }
-    .card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 1.4rem;
-      border-top: 4px solid var(--border);
-      transition: transform 160ms ease, border-color 160ms ease;
-    }
-    .card:hover { transform: translateY(-3px); }
-    /* flat colour coding cycled from the logo palette */
-    .card:nth-child(3n+1) { border-top-color: var(--amber); }
-    .card:nth-child(3n+2) { border-top-color: var(--red); }
-    .card:nth-child(3n+3) { border-top-color: var(--pink); }
-    .card .emoji { font-size: 1.6rem; }
-    .card h3 { font-size: 1.08rem; margin: 0.5rem 0 0.35rem; }
-    .card p { color: var(--text-dim); font-size: 0.95rem; }
-
-    /* ---------- downloads ---------- */
-    .dl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; }
-    .dl {
-      display: block; text-decoration: none; text-align: center;
-      background: var(--bg-card); border: 2px solid var(--border); border-radius: 14px;
-      padding: 1.1rem 1rem; color: var(--text); font-weight: 700;
-      transition: transform 140ms ease, border-color 140ms ease;
-    }
-    .dl:hover { transform: translateY(-2px); border-color: var(--amber); }
-    .dl span { display: block; font-weight: 400; color: var(--text-dim); font-size: 0.85rem; margin-top: 0.2rem; }
-
-    /* ---------- notice / footer ---------- */
-    .notice {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-left: 4px solid var(--red); border-radius: 10px;
-      padding: 1.1rem 1.3rem; color: var(--text-dim); font-size: 0.95rem;
-    }
-    footer { border-top: 2px solid var(--amber); margin-top: 2.5rem; padding: 2.2rem 0; text-align: center; color: var(--text-dim); font-size: 0.9rem; background: var(--bg-raise); }
-    footer a { color: var(--text); }
-    footer a:hover { color: var(--heading-accent); }
-  </style>
+  <meta property="og:image" content="https://hyaecord.vercel.app/assets/og.png" />
+  <link rel="icon" type="image/svg+xml" href="/assets/logo-vector.svg" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <nav class="nav" aria-label="Main">
     <div class="nav-inner">
-      <a class="nav-brand" href="/"><img src="/assets/logo.svg" alt="" /> Hyaecord</a>
+      <a class="nav-brand" href="/"><img src="/assets/logo-vector.svg" alt="" /> Hyaecord</a>
       <div class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#download">Download</a>
+        <a href="/#features">Features</a>
+        <a href="/#download">Download</a>
         <a href="/docs.html">Docs</a>
         <a href="https://github.com/Hyaecord/hyaecord">GitHub</a>
         <a class="nav-cta" href="/discord">Join Discord</a>
@@ -172,7 +27,7 @@
   </nav>
 
   <header class="hero">
-    <img class="logo" src="/assets/logo.svg" alt="Hyaecord logo" />
+    <img class="logo" src="/assets/logo-vector.svg" alt="Hyaecord logo" />
     <h1>The Discord client<br /><span class="accent-line">your desktop deserves.</span></h1>
     <p class="tag">Performance-focused. Native-feeling. Built for Linux, coming to Windows — with the plugin ecosystem you already love.</p>
     <div class="buttons">
@@ -183,7 +38,7 @@
     <p class="sub">Free &amp; open source (GPL-3.0) · Anonymous stats only, one-click opt-out · Runs most Equicord &amp; Vencord plugins</p>
   </header>
 
-  <main class="wrap">
+  <main class="wrap" id="main">
     <section id="features">
       <h2>Everything you'd want. <span class="accent">Nothing you wouldn't.</span></h2>
       <p class="lead">An original client — not a reskin — engineered around how your desktop actually works.</p>
