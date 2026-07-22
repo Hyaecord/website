@@ -1,0 +1,6 @@
+Contact: https://github.com/Hyaecord/hyaecord/security/advisories/new
+Contact: https://github.com/Hyaecord/hyaecord/issues
+Expires: 2027-07-22T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://hyaecord.vercel.app/.well-known/security.txt
+Policy: https://hyaecord.vercel.app/legal.html

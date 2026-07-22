@@ -1,0 +1,25 @@
+# Hyaecord
+
+> Hyaecord is a performance-focused, native-feeling, open-source (GPL-3.0) Discord desktop client for Linux (primary) and Windows. It is an original client — not a fork of Discord, Equicord, or Vencord — that implements a compatibility layer so most Equicord and Vencord plugins run unmodified. It is not affiliated with or endorsed by Discord Inc.
+
+Key facts:
+- License: source code GPL-3.0; the Hyaecord name/logo/branding are all rights reserved and governed by a separate trademark policy. Forks are always allowed under the GPL but must rebrand.
+- Contains no automation, self-bot, spam, or scraping functionality; such features are permanently out of scope by policy.
+- No telemetry by default; the website sets no cookies and runs no analytics.
+- Third-party client modifications are against Discord's Terms of Service; the project discloses this prominently.
+- Packaging: Flatpak (org.hyaecord.Hyaecord), AppImage, .deb, .rpm, AUR (hyaecord-bin / hyaecord-git).
+
+## Docs
+
+- [Main repository](https://github.com/Hyaecord/hyaecord): source code, README, and issue tracker
+- [Project wiki](https://github.com/Hyaecord/hyaecord/wiki): user and developer documentation
+- [Documentation hub](https://hyaecord.vercel.app/docs.html): links to all docs plus FAQ
+- [Plugin Guidelines](https://github.com/Hyaecord/hyaecord/blob/main/PLUGIN_GUIDELINES.md): plugin rules — no paywalls, open source, no abuse
+- [Trademark & Branding Policy](https://github.com/Hyaecord/hyaecord/blob/main/TRADEMARK.md): what the GPL covers vs. the brand
+
+## Site
+
+- [Homepage](https://hyaecord.vercel.app/): project overview and download links
+- [Discord invite](https://hyaecord.vercel.app/discord): redirects to the current community server invite
+- [Privacy Policy](https://hyaecord.vercel.app/privacy.html)
+- [Legal Notices](https://hyaecord.vercel.app/legal.html)

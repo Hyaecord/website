@@ -6,6 +6,11 @@ The [Hyaecord](https://github.com/Hyaecord/hyaecord) project website, deployed o
 ## Structure
 
 - `index.html` — static landing page (no framework, no build step).
+- `docs.html` — documentation/wiki hub with FAQ.
+- `privacy.html` / `legal.html` — privacy policy and legal notices.
+- `llms.txt` — machine-readable project summary for LLMs and crawlers.
+- `.well-known/security.txt` — RFC 9116 security contact.
+- `robots.txt` / `sitemap.xml` / `404.html` — the usual site plumbing.
 - `assets/logo.svg` — branding, copied from the main repo's `assets/branding/`.
 - `api/discord.js` — serverless function backing the `/discord` redirect.
 - `vercel.json` — rewrites `/discord` to the function.
