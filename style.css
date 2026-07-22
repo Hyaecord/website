@@ -43,14 +43,15 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #f1e9d5;
-    --bg-raise: #f7f1e2;
-    --bg-card: #fefefe;
-    --border: #d8cbaa;
+    /* near-white with a warm hint — cream is an accent (nav/footer), not the canvas */
+    --bg: #faf7f0;
+    --bg-raise: #f3ede1;
+    --bg-card: #ffffff;
+    --border: #e2d8c2;
     --text: #2e1d11;
     --text-dim: #5f5240;
-    --heading-accent: var(--amber-600);   /* 5.6:1 on cream */
-    --link: var(--pink-600);              /* 5.9:1 on cream */
+    --heading-accent: var(--amber-600);   /* ≥5.6:1 on near-white */
+    --link: var(--pink-600);              /* ≥5.9:1 on near-white */
   }
 }
 
