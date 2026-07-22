@@ -5,7 +5,7 @@
 Key facts:
 - License: source code GPL-3.0; the Hyaecord name/logo/branding are all rights reserved and governed by a separate trademark policy. Forks are always allowed under the GPL but must rebrand.
 - Contains no automation, self-bot, spam, or scraping functionality; such features are permanently out of scope by policy.
-- No telemetry by default; the website sets no cookies and runs no analytics.
+- Telemetry: one anonymous daily ping (random ID, app version, OS, desktop environment — never linked to a Discord account), disclosed in the first-run wizard, with a one-click opt-out in Settings. The website sets no cookies and runs no analytics.
 - Third-party client modifications are against Discord's Terms of Service; the project discloses this prominently.
 - Packaging: Flatpak (org.hyaecord.Hyaecord), AppImage, .deb, .rpm, AUR (hyaecord-bin / hyaecord-git).
 

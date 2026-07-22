@@ -33,7 +33,7 @@
   <div class="wrap">
     <a class="back" href="/">&larr; Back to hyaecord.vercel.app</a>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 22 July 2026 · Applies to this website (hyaecord.vercel.app)</p>
+    <p class="updated">Last updated: 22 July 2026 · Applies to this website (hyaecord.vercel.app) and the Hyaecord client's anonymous usage stats</p>
 
     <h2>The short version</h2>
     <p>
@@ -73,12 +73,27 @@
       this site.
     </p>
 
-    <h2>The Hyaecord app</h2>
+    <h2>The Hyaecord app &amp; anonymous usage stats</h2>
     <p>
-      This policy covers the website only. The Hyaecord desktop client ships
-      with <strong>no telemetry by default</strong>; any feature that would
-      transmit data (such as cloud settings sync) is opt-in and explained in
-      plain language before it is enabled. See the
+      The Hyaecord desktop client sends <strong>one small anonymous ping per
+      day</strong> to this domain (<code>/api/telemetry</code>) so the project
+      can know roughly how many people use it and on which platforms. The ping
+      contains: a random ID generated on your machine (never linked to your
+      Discord account, IP address, or any other identity), the app version,
+      operating system, CPU architecture, and desktop environment family.
+      It never contains messages, usernames, server names, or behavioural
+      profiles.
+    </p>
+    <p>
+      This is disclosed in the client's first-run wizard and can be
+      <strong>switched off at any time in Settings</strong> — off means off;
+      no further data is sent, not even a final "goodbye" ping. The legal
+      basis for this processing is legitimate interest in maintaining the
+      project (GDPR Art. 6(1)(f)); because the data is anonymous, it cannot
+      be tied back to you. IP addresses are not stored by the telemetry
+      endpoint. Any other feature that would transmit data (such as cloud
+      settings sync) remains opt-in and explained in plain language before it
+      is enabled. See the
       <a href="https://github.com/Hyaecord/hyaecord">main repository</a> for
       details.
     </p>
