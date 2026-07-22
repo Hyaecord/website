@@ -1,6 +1,6 @@
 const GUILD_ID = "1529521295228928000";
 // Last-known invite, used only if the widget fetch fails.
-const FALLBACK_INVITE = "https://discord.com/invite/vhXNzJxV";
+const FALLBACK_INVITE = "";
 
 export default async function handler(req, res) {
   let invite = FALLBACK_INVITE;
