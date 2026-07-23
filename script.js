@@ -9,6 +9,20 @@ document.querySelectorAll(".nav-toggle").forEach(btn => {
   });
 });
 
+// Opening a <details> via its #id anchor (e.g. the "Pronunciation" nav link)
+// should reveal the content, not just scroll to a collapsed box.
+function openDetailsFromHash() {
+  const id = location.hash.slice(1);
+  if (!id) return;
+  const el = document.getElementById(id);
+  if (el?.tagName === "DETAILS") {
+    el.open = true;
+    el.scrollIntoView({ block: "start" });
+  }
+}
+openDetailsFromHash();
+window.addEventListener("hashchange", openDetailsFromHash);
+
 const BANNER_KEY = "hyaecord-banner-dismissed-v1";
 const banner = document.querySelector(".banner");
 if (banner) {
