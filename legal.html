@@ -10,11 +10,19 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="banner">
+    <strong>Alpha</strong> — Hyaecord is in early development. <a href="https://github.com/Hyaecord/hyaecord/releases">Watch for the first release</a> or join the Discord for updates.
+    <button class="banner-close" aria-label="Dismiss announcement" type="button">&times;</button>
+  </div>
   <nav class="nav" aria-label="Main">
     <div class="nav-inner">
       <a class="nav-brand" href="/"><img src="/assets/logo-64.png" alt="" /> Hyaecord</a>
-      <div class="nav-links">
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+      <div class="nav-links" id="nav-links">
         <a href="/#features">Features</a>
+        <a href="/#pronunciation">Pronunciation</a>
         <a href="/#download">Download</a>
         <a href="/docs.html">Docs</a>
         <a href="https://github.com/Hyaecord/hyaecord">GitHub</a>
@@ -119,5 +127,6 @@
       <p>© 2026 the Hyaecord contributors. Not affiliated with or endorsed by Discord Inc.</p>
     </div>
   </footer>
+  <script src="/script.js" defer></script>
 </body>
 </html>
