@@ -65,7 +65,7 @@
     <h2>FAQ</h2>
     <details>
       <summary>Is Hyaecord a fork of Equicord or Vencord?</summary>
-      <p>No. Hyaecord is an original client with its own shell, GUI, and internals. What it shares with Equicord/Vencord is the <em>plugin API surface</em>: a compatibility layer lets most existing plugins run unmodified. Plugins that reach into Equicord/Vencord-specific internals or DOM structure may need porting.</p>
+      <p>No. Hyaecord is an original client with its own shell, GUI, and internals. Its plugin system is a separate, sandboxed API ergonomically modeled on Vencord's <code>definePlugin</code> shape — familiar to write for, but <em>not</em> a byte-compatible runner for existing Equicord/Vencord plugin files, which patch Discord's real webpack bundle that this client's original GUI doesn't have. A plugin that only needs message-level hooks ports easily; one that reaches into Discord's real component tree can't run here at all. See the <a href="https://github.com/Hyaecord/hyaecord/blob/main/PLUGIN_GUIDELINES.md">Plugin Guidelines</a> for the current scope.</p>
     </details>
     <details>
       <summary>Will I get banned for using Hyaecord?</summary>

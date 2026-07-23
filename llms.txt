@@ -1,6 +1,6 @@
 # Hyaecord
 
-> Hyaecord is a performance-focused, native-feeling, source-available Discord desktop client for Linux (primary) and Windows. It is an original client — not a fork of Discord, Equicord, or Vencord — that implements a compatibility layer so most Equicord and Vencord plugins run unmodified. It is not affiliated with or endorsed by Discord Inc.
+> Hyaecord is a performance-focused, native-feeling, source-available Discord desktop client for Linux (primary) and Windows, currently in early alpha. It is an original client — not a fork of Discord, Equicord, or Vencord — with its own sandboxed plugin API ergonomically modeled on Vencord's `definePlugin` shape, not a byte-compatible runner for existing Equicord/Vencord plugin files (see Plugin Guidelines for the current scope). It is not affiliated with or endorsed by Discord Inc.
 
 Key facts:
 - License: source code under the Hyaecord Public License (GPL-3.0-derived, source-available) — free to use/modify/redistribute, with two added conditions: no commercial use (no selling/paywalling the software, forks, or plugins; voluntary donations are fine) and forks must stay open-source under the same terms. The Hyaecord name/logo/branding are all rights reserved and governed by a separate trademark policy. Compliant forks are always allowed but must rebrand.
