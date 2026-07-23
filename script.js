@@ -23,15 +23,6 @@ function openDetailsFromHash() {
 openDetailsFromHash();
 window.addEventListener("hashchange", openDetailsFromHash);
 
-document.querySelectorAll("[data-preview-toggle]").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const frame = btn.closest(".app-preview");
-    const next = frame.dataset.previewTheme === "dark" ? "light" : "dark";
-    frame.dataset.previewTheme = next;
-    btn.setAttribute("aria-pressed", String(next === "light"));
-  });
-});
-
 const BANNER_KEY = "hyaecord-banner-dismissed-v1";
 const banner = document.querySelector(".banner");
 if (banner) {

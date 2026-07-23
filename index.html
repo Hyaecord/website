@@ -50,62 +50,84 @@
     <section id="preview" aria-label="A preview of the Hyaecord interface">
       <h2>See it <span class="accent">before you install it.</span></h2>
       <p class="lead">
-        A live render of Hyaecord's actual UI code and colours — not a screenshot, so it can't leak a
-        real server's content, and it never goes stale when the app changes. Every name and message
-        below is placeholder text.
+        Live renders of Hyaecord's actual UI code and colours — not screenshots, so nothing here can
+        leak a real server's content, and none of it goes stale when the app changes. Every name,
+        server, and message shown is placeholder text. Matches your system's light/dark setting, same
+        as the rest of this page.
       </p>
-      <div class="app-preview" data-preview-theme="dark">
-        <button class="app-preview-toggle" type="button" data-preview-toggle aria-pressed="false">
-          <span class="app-preview-toggle-icon" aria-hidden="true">&#9789;</span>
-          Toggle light / dark
-        </button>
-        <div class="app-preview-frame">
-          <nav class="ap-rail" aria-hidden="true">
-            <span class="ap-pill ap-pill-home">H</span>
-            <span class="ap-divider"></span>
-            <span class="ap-pill">DN</span>
-            <span class="ap-pill">GG</span>
-            <span class="ap-pill ap-pill-active">🦴</span>
-            <span class="ap-pill">MR</span>
-          </nav>
-          <div class="ap-channels" aria-hidden="true">
-            <div class="ap-server-name">Den of Nonsense</div>
-            <div class="ap-channel">#general-howling</div>
-            <div class="ap-channel is-active"># scavenger-hunt</div>
-            <div class="ap-channel">#screenshot-dump</div>
-            <div class="ap-channel">#off-topic</div>
+      <div class="app-preview-cluster">
+        <div class="app-preview ap-tilt-1" aria-hidden="true">
+          <div class="ap-card-label">A server</div>
+          <div class="app-preview-frame">
+            <nav class="ap-rail">
+              <span class="ap-pill ap-pill-home">H</span>
+              <span class="ap-divider"></span>
+              <span class="ap-pill">DN</span>
+              <span class="ap-pill ap-pill-active">🦴</span>
+              <span class="ap-pill">MR</span>
+            </nav>
+            <div class="ap-channels">
+              <div class="ap-server-name">Den of Nonsense</div>
+              <div class="ap-channel">#general-howling</div>
+              <div class="ap-channel is-active"># scavenger-hunt</div>
+              <div class="ap-channel">#screenshot-dump</div>
+            </div>
+            <div class="ap-chat">
+              <div class="ap-chat-header"># scavenger-hunt</div>
+              <div class="ap-msg">
+                <span class="ap-avatar" style="background:#e8a962">SP</span>
+                <div>
+                  <div class="ap-msg-meta"><span class="ap-author">Spottedtail</span><span class="ap-time">9:41 PM</span></div>
+                  <div class="ap-msg-text">found a whole femur under the porch, calling it now</div>
+                </div>
+              </div>
+              <div class="ap-msg">
+                <span class="ap-avatar" style="background:#2dd4bf">WK</span>
+                <div>
+                  <div class="ap-msg-meta"><span class="ap-author">Whiskerkin</span><span class="ap-time">9:42 PM</span></div>
+                  <div class="ap-msg-text">no fair you always find the good bones ¯\_(ツ)_/¯</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="ap-chat" aria-hidden="true">
-            <div class="ap-chat-header"># scavenger-hunt</div>
-            <div class="ap-msg">
-              <span class="ap-avatar" style="background:#e8a962">SP</span>
-              <div>
-                <div class="ap-msg-meta"><span class="ap-author">Spottedtail</span><span class="ap-time">9:41 PM</span></div>
-                <div class="ap-msg-text">found a whole femur under the porch, calling it now</div>
+        </div>
+
+        <div class="app-preview ap-tilt-2" aria-hidden="true">
+          <div class="ap-card-label">Direct messages</div>
+          <div class="app-preview-frame app-preview-frame-narrow">
+            <div class="ap-chat">
+              <div class="ap-chat-header">Laughingnox</div>
+              <div class="ap-msg">
+                <span class="ap-avatar" style="background:#d4495f">LN</span>
+                <div>
+                  <div class="ap-msg-meta"><span class="ap-author">Laughingnox</span><span class="ap-time">9:44 PM</span></div>
+                  <div class="ap-msg-text">screenshot dump channel exists for a reason guys 💀</div>
+                </div>
               </div>
-            </div>
-            <div class="ap-msg">
-              <span class="ap-avatar" style="background:#2dd4bf">WK</span>
-              <div>
-                <div class="ap-msg-meta"><span class="ap-author">Whiskerkin</span><span class="ap-time">9:42 PM</span></div>
-                <div class="ap-msg-text">no fair you always find the good bones ¯\_(ツ)_/¯</div>
+              <div class="ap-msg">
+                <span class="ap-avatar" style="background:#22e6c8">YOU</span>
+                <div>
+                  <div class="ap-msg-meta"><span class="ap-author">You</span><span class="ap-time">9:45 PM</span></div>
+                  <div class="ap-msg-text">worth it tbh</div>
+                </div>
               </div>
+              <div class="ap-composer">Message @Laughingnox</div>
             </div>
-            <div class="ap-msg">
-              <span class="ap-avatar" style="background:#d4495f">LN</span>
-              <div>
-                <div class="ap-msg-meta"><span class="ap-author">Laughingnox</span><span class="ap-time">9:44 PM</span></div>
-                <div class="ap-msg-text">screenshot dump channel exists for a reason guys 💀</div>
-              </div>
-            </div>
-            <div class="ap-composer">Message #scavenger-hunt</div>
           </div>
-          <aside class="ap-members" aria-hidden="true">
-            <div class="ap-member-group">ONLINE — 3</div>
-            <div class="ap-member"><span class="ap-status online"></span>Spottedtail</div>
-            <div class="ap-member"><span class="ap-status online"></span>Whiskerkin</div>
-            <div class="ap-member"><span class="ap-status idle"></span>Laughingnox</div>
-          </aside>
+        </div>
+
+        <div class="app-preview ap-tilt-3" aria-hidden="true">
+          <div class="ap-card-label">Members</div>
+          <div class="app-preview-frame app-preview-frame-narrow">
+            <aside class="ap-members ap-members-standalone">
+              <div class="ap-member-group">ONLINE — 3</div>
+              <div class="ap-member"><span class="ap-status online"></span>Spottedtail</div>
+              <div class="ap-member"><span class="ap-status online"></span>Whiskerkin</div>
+              <div class="ap-member"><span class="ap-status idle"></span>Laughingnox</div>
+              <div class="ap-member-group">OFFLINE — 1</div>
+              <div class="ap-member"><span class="ap-status"></span>Mossrunner</div>
+            </aside>
+          </div>
         </div>
       </div>
     </section>
