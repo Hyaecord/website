@@ -292,6 +292,117 @@ section > h2, .page-title {
 .card:nth-child(3n+2) { border-top-color: var(--card-accent-2); }
 .card:nth-child(3n+3) { border-top-color: var(--card-accent-3); }
 .card .emoji { font-size: 1.6rem; }
+
+/* ---------- app preview ----------
+   A live render of Hyaecord's real shell colours (server rail / channel
+   list / chat / member list), not a screenshot — deliberately independent
+   of this page's own amber-accented tokens above, since the point is to
+   show the *app's* actual palette (teal accent, near-black/white neutrals)
+   accurately. Placeholder content only; toggled via a data attribute
+   rather than prefers-color-scheme so visitors can flip it regardless of
+   their OS setting. */
+.app-preview { position: relative; }
+.app-preview-toggle {
+  position: absolute;
+  top: -2.6rem;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.app-preview-toggle:hover { color: var(--text); border-color: var(--heading-accent); }
+
+.app-preview-frame {
+  display: grid;
+  grid-template-columns: 56px 170px 1fr 150px;
+  height: 380px;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  font-size: 0.85rem;
+}
+@media (max-width: 720px) {
+  .app-preview-frame { grid-template-columns: 48px 1fr; height: 420px; }
+  .ap-chat { grid-column: 2; }
+  .ap-members { display: none; }
+}
+
+[data-preview-theme="dark"] .app-preview-frame {
+  --ap-deep: #16130e; --ap-base: #1c1812; --ap-raise: #241f16; --ap-hover: #2d271c;
+  --ap-border: #3a3325; --ap-text: #f2f3f5; --ap-text-dim: #949ba4;
+  --ap-accent: #2dd4bf; --ap-accent-strong: #5eead4;
+}
+[data-preview-theme="light"] .app-preview-frame {
+  --ap-deep: #e3e5e8; --ap-base: #ffffff; --ap-raise: #f2f3f5; --ap-hover: #e3e5e8;
+  --ap-border: #d4d7dc; --ap-text: #060607; --ap-text-dim: #5c5e66;
+  --ap-accent: #115e59; --ap-accent-strong: #0d4f4a;
+}
+
+.ap-rail {
+  background: var(--ap-deep);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 0;
+}
+.ap-pill {
+  width: 34px; height: 34px;
+  border-radius: 12px;
+  background: var(--ap-raise);
+  color: var(--ap-text-dim);
+  display: grid; place-items: center;
+  font-size: 0.68rem; font-weight: 700;
+}
+.ap-pill-home { background: var(--ap-accent); color: var(--ap-deep); border-radius: 30%; }
+.ap-pill-active { border: 2px solid var(--ap-accent); color: var(--ap-text); }
+.ap-divider { width: 20px; height: 2px; background: var(--ap-border); border-radius: 1px; }
+
+.ap-channels { background: var(--ap-base); padding: 0.8rem 0.6rem; border-right: 1px solid var(--ap-border); }
+.ap-server-name { color: var(--ap-text); font-weight: 700; margin-bottom: 0.6rem; font-size: 0.82rem; }
+.ap-channel { color: var(--ap-text-dim); padding: 0.3rem 0.5rem; border-radius: 6px; margin-bottom: 0.1rem; }
+.ap-channel.is-active { background: var(--ap-hover); color: var(--ap-text); }
+
+.ap-chat { background: var(--ap-base); display: flex; flex-direction: column; min-width: 0; }
+.ap-chat-header {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--ap-border);
+  color: var(--ap-text);
+  font-weight: 700;
+}
+.ap-msg { display: flex; gap: 0.6rem; padding: 0.5rem 1rem; align-items: flex-start; }
+.ap-avatar {
+  width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+  display: grid; place-items: center;
+  color: #16130e; font-weight: 700; font-size: 0.72rem;
+}
+.ap-msg-meta { display: flex; align-items: baseline; gap: 0.5rem; }
+.ap-author { color: var(--ap-text); font-weight: 600; }
+.ap-time { color: var(--ap-text-dim); font-size: 0.72rem; }
+.ap-msg-text { color: var(--ap-text); overflow-wrap: anywhere; }
+.ap-composer {
+  margin: auto 1rem 0.8rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  background: var(--ap-raise);
+  color: var(--ap-text-dim);
+}
+
+.ap-members { background: var(--ap-base); border-left: 1px solid var(--ap-border); padding: 0.8rem 0.7rem; }
+.ap-member-group { color: var(--ap-text-dim); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.ap-member { display: flex; align-items: center; gap: 0.4rem; color: var(--ap-text); padding: 0.25rem 0; font-size: 0.82rem; }
+.ap-status { width: 8px; height: 8px; border-radius: 50%; background: var(--ap-text-dim); }
+.ap-status.online { background: #23a55a; }
+.ap-status.idle { background: #f0b232; }
 .card h3 { font-size: 1.08rem; margin: 0.5rem 0 0.35rem; }
 .card p { color: var(--text-dim); font-size: 0.95rem; }
 

@@ -47,6 +47,69 @@
   </header>
 
   <main class="wrap" id="main">
+    <section id="preview" aria-label="A preview of the Hyaecord interface">
+      <h2>See it <span class="accent">before you install it.</span></h2>
+      <p class="lead">
+        A live render of Hyaecord's actual UI code and colours — not a screenshot, so it can't leak a
+        real server's content, and it never goes stale when the app changes. Every name and message
+        below is placeholder text.
+      </p>
+      <div class="app-preview" data-preview-theme="dark">
+        <button class="app-preview-toggle" type="button" data-preview-toggle aria-pressed="false">
+          <span class="app-preview-toggle-icon" aria-hidden="true">&#9789;</span>
+          Toggle light / dark
+        </button>
+        <div class="app-preview-frame">
+          <nav class="ap-rail" aria-hidden="true">
+            <span class="ap-pill ap-pill-home">H</span>
+            <span class="ap-divider"></span>
+            <span class="ap-pill">DN</span>
+            <span class="ap-pill">GG</span>
+            <span class="ap-pill ap-pill-active">🦴</span>
+            <span class="ap-pill">MR</span>
+          </nav>
+          <div class="ap-channels" aria-hidden="true">
+            <div class="ap-server-name">Den of Nonsense</div>
+            <div class="ap-channel">#general-howling</div>
+            <div class="ap-channel is-active"># scavenger-hunt</div>
+            <div class="ap-channel">#screenshot-dump</div>
+            <div class="ap-channel">#off-topic</div>
+          </div>
+          <div class="ap-chat" aria-hidden="true">
+            <div class="ap-chat-header"># scavenger-hunt</div>
+            <div class="ap-msg">
+              <span class="ap-avatar" style="background:#e8a962">SP</span>
+              <div>
+                <div class="ap-msg-meta"><span class="ap-author">Spottedtail</span><span class="ap-time">9:41 PM</span></div>
+                <div class="ap-msg-text">found a whole femur under the porch, calling it now</div>
+              </div>
+            </div>
+            <div class="ap-msg">
+              <span class="ap-avatar" style="background:#2dd4bf">WK</span>
+              <div>
+                <div class="ap-msg-meta"><span class="ap-author">Whiskerkin</span><span class="ap-time">9:42 PM</span></div>
+                <div class="ap-msg-text">no fair you always find the good bones ¯\_(ツ)_/¯</div>
+              </div>
+            </div>
+            <div class="ap-msg">
+              <span class="ap-avatar" style="background:#d4495f">LN</span>
+              <div>
+                <div class="ap-msg-meta"><span class="ap-author">Laughingnox</span><span class="ap-time">9:44 PM</span></div>
+                <div class="ap-msg-text">screenshot dump channel exists for a reason guys 💀</div>
+              </div>
+            </div>
+            <div class="ap-composer">Message #scavenger-hunt</div>
+          </div>
+          <aside class="ap-members" aria-hidden="true">
+            <div class="ap-member-group">ONLINE — 3</div>
+            <div class="ap-member"><span class="ap-status online"></span>Spottedtail</div>
+            <div class="ap-member"><span class="ap-status online"></span>Whiskerkin</div>
+            <div class="ap-member"><span class="ap-status idle"></span>Laughingnox</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
     <section id="features">
       <h2>Everything you'd want. <span class="accent">Nothing you wouldn't.</span></h2>
       <p class="lead">An original client — not a reskin — engineered around how your desktop actually works.</p>
@@ -103,7 +166,7 @@
       <h2>Get <span class="accent">Hyaecord</span></h2>
       <p class="lead">Early development — packages go live with the first release. Until then, star the repo and join the Discord for updates.</p>
       <div class="dl-grid">
-        <a class="dl" href="https://github.com/Hyaecord/hyaecord/releases">Flatpak<span>org.hyaecord.Hyaecord</span></a>
+        <a class="dl" href="https://github.com/Hyaecord/hyaecord/releases">Flatpak<span>io.github.Hyaecord.Hyaecord</span></a>
         <a class="dl" href="https://github.com/Hyaecord/hyaecord/releases">AppImage<span>universal Linux</span></a>
         <a class="dl" href="https://github.com/Hyaecord/hyaecord/releases">.deb / .rpm<span>Debian, Ubuntu, Fedora</span></a>
         <a class="dl" href="https://github.com/Hyaecord/hyaecord/releases">AUR<span>hyaecord-bin · hyaecord-git</span></a>

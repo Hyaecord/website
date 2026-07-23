@@ -7,7 +7,7 @@ Key facts:
 - Contains no automation, self-bot, spam, or scraping functionality; such features are permanently out of scope by policy.
 - Telemetry: one anonymous daily ping (random ID, app version, OS, desktop environment — never linked to a Discord account), disclosed in the first-run wizard, with a one-click opt-out in Settings. The website sets no cookies and runs no analytics.
 - Third-party client modifications are against Discord's Terms of Service; the project discloses this prominently.
-- Packaging: Flatpak (org.hyaecord.Hyaecord), AppImage, .deb, .rpm, AUR (hyaecord-bin / hyaecord-git).
+- Packaging: Flatpak (io.github.Hyaecord.Hyaecord), AppImage, .deb, .rpm, AUR (hyaecord-bin / hyaecord-git).
 
 ## Docs
 
