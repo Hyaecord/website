@@ -318,7 +318,9 @@ section > h2, .page-title {
 }
 .app-preview-frame {
   display: grid;
-  grid-template-columns: 34px 84px 1fr 84px;
+  /* Matches the real client's actual rail/channels/members ratio
+     (72px/240px/240px in src/renderer/styles.css), scaled down. */
+  grid-template-columns: 25px 84px 1fr 84px;
   height: 220px;
   border-radius: var(--radius-l);
   overflow: hidden;
@@ -385,16 +387,16 @@ section > h2, .page-title {
   padding: 0.5rem 0;
 }
 .ap-pill {
-  width: 22px; height: 22px;
-  border-radius: 9px;
+  width: 17px; height: 17px;
+  border-radius: 6px;
   background: var(--ap-raise);
   color: var(--ap-text-dim);
   display: grid; place-items: center;
-  font-size: 0.56rem; font-weight: 700;
+  font-size: 0.42rem; font-weight: 700;
 }
 .ap-pill-home { background: var(--ap-accent); color: var(--ap-deep); border-radius: 30%; }
 .ap-pill-active { border: 2px solid var(--ap-accent); color: var(--ap-text); }
-.ap-divider { width: 14px; height: 2px; background: var(--ap-border); border-radius: 1px; }
+.ap-divider { width: 11px; height: 2px; background: var(--ap-border); border-radius: 1px; }
 
 .ap-channels { background: var(--ap-base); padding: 0.5rem 0.4rem; border-right: 1px solid var(--ap-border); overflow: hidden; }
 .ap-server-name { color: var(--ap-text); font-weight: 700; margin-bottom: 0.4rem; font-size: 0.68rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
