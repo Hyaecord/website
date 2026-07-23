@@ -294,21 +294,22 @@ section > h2, .page-title {
 .card .emoji { font-size: 1.6rem; }
 
 /* ---------- app preview ----------
-   Live renders of Hyaecord's real shell colours (server rail / channel
-   list / chat / member list), not screenshots — deliberately independent
-   of this page's own amber-accented tokens above, since the point is to
-   show the *app's* actual palette (teal accent, near-black/white neutrals)
-   accurately. Placeholder content only. Follows prefers-color-scheme, same
-   mechanism as the rest of this page — no separate toggle to fiddle with. */
+   Live renders of Hyaecord's real shell (server rail / channel list / chat
+   / member list) — not screenshots — each card a full mini client in one
+   of the actual built-in Theme Store options, deliberately independent of
+   this page's own amber-accented tokens above since the point is showing
+   the *app's* real palettes accurately. Placeholder content only. Each
+   theme still follows prefers-color-scheme, same mechanism as the rest of
+   this page — no separate toggle to fiddle with. */
 .app-preview-cluster {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
-  gap: 2.5rem 1.5rem;
+  gap: 2.5rem 1.75rem;
   padding: 1rem 0 1.5rem;
 }
-.app-preview { width: min(280px, 100%); }
+.app-preview { width: min(320px, 100%); }
 .ap-card-label {
   color: var(--text-dim);
   font-size: 0.78rem;
@@ -317,16 +318,19 @@ section > h2, .page-title {
 }
 .app-preview-frame {
   display: grid;
-  grid-template-columns: 40px 1fr;
-  height: 200px;
+  grid-template-columns: 34px 84px 1fr 84px;
+  height: 220px;
   border-radius: var(--radius-l);
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   transition: transform var(--dur-base) var(--ease);
 }
-.app-preview-frame-narrow { grid-template-columns: 1fr; }
+@media (max-width: 400px) {
+  .app-preview-frame { grid-template-columns: 30px 1fr; }
+  .app-preview-frame .ap-members { display: none; }
+}
 .ap-tilt-1 .app-preview-frame { transform: rotate(-3deg); }
 .ap-tilt-2 .app-preview-frame { transform: rotate(2deg) translateY(0.6rem); }
 .ap-tilt-3 .app-preview-frame { transform: rotate(-1.5deg) translateY(-0.3rem); }
@@ -337,16 +341,38 @@ section > h2, .page-title {
   .ap-tilt-3 .app-preview-frame { transition: none; }
 }
 
-.app-preview-frame {
+/* Each theme's dark set is the default; prefers-color-scheme:light swaps in
+   its light set. Values match community-themes/registry.json exactly. */
+.ap-theme-default {
   --ap-deep: #16130e; --ap-base: #1c1812; --ap-raise: #241f16; --ap-hover: #2d271c;
   --ap-border: #3a3325; --ap-text: #f2f3f5; --ap-text-dim: #949ba4;
   --ap-accent: #2dd4bf; --ap-accent-strong: #5eead4;
 }
+.ap-theme-hyena {
+  --ap-deep: #1a120a; --ap-base: #201610; --ap-raise: #2b1e14; --ap-hover: #37281c;
+  --ap-border: #4a3626; --ap-text: #f5eee2; --ap-text-dim: #b9a892;
+  --ap-accent: #e8a962; --ap-accent-strong: #f5cc9f;
+}
+.ap-theme-tubular {
+  --ap-deep: #0a0f0e; --ap-base: #0f1614; --ap-raise: #16211d; --ap-hover: #1d2b26;
+  --ap-border: #274038; --ap-text: #eef9f6; --ap-text-dim: #93b3aa;
+  --ap-accent: #22e6c8; --ap-accent-strong: #7ff5e0;
+}
 @media (prefers-color-scheme: light) {
-  .app-preview-frame {
+  .ap-theme-default {
     --ap-deep: #e3e5e8; --ap-base: #ffffff; --ap-raise: #f2f3f5; --ap-hover: #e3e5e8;
     --ap-border: #d4d7dc; --ap-text: #060607; --ap-text-dim: #5c5e66;
     --ap-accent: #115e59; --ap-accent-strong: #0d4f4a;
+  }
+  .ap-theme-hyena {
+    --ap-deep: #ece1cd; --ap-base: #fbf6ec; --ap-raise: #f3ebd9; --ap-hover: #ece1cd;
+    --ap-border: #ddccaf; --ap-text: #2e1d11; --ap-text-dim: #6b5645;
+    --ap-accent: #835000; --ap-accent-strong: #653e05;
+  }
+  .ap-theme-tubular {
+    --ap-deep: #e2f2ee; --ap-base: #ffffff; --ap-raise: #eefaf7; --ap-hover: #e2f2ee;
+    --ap-border: #c8e3dc; --ap-text: #052620; --ap-text-dim: #4c7168;
+    --ap-accent: #0f7a68; --ap-accent-strong: #0a5c4e;
   }
 }
 
@@ -386,7 +412,14 @@ section > h2, .page-title {
 .ap-avatar {
   width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
   display: grid; place-items: center;
-  color: #16130e; font-weight: 700; font-size: 0.56rem;
+  /* Accent fills are light in dark mode (dark text reads) and dark in light
+     mode (light text reads) across every theme — so this just tracks which
+     mode is active rather than needing a colour per theme. */
+  color: var(--ap-deep);
+  font-weight: 700; font-size: 0.56rem;
+}
+@media (prefers-color-scheme: light) {
+  .ap-avatar { color: var(--ap-base); }
 }
 .ap-msg-meta { display: flex; align-items: baseline; gap: 0.35rem; }
 .ap-author { color: var(--ap-text); font-weight: 600; }
@@ -401,7 +434,6 @@ section > h2, .page-title {
 }
 
 .ap-members { background: var(--ap-base); border-left: 1px solid var(--ap-border); padding: 0.55rem 0.5rem; }
-.ap-members-standalone { border-left: none; padding: 0.6rem 0.7rem; }
 .ap-member-group { color: var(--ap-text-dim); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.05em; margin: 0.5rem 0 0.35rem; }
 .ap-member-group:first-child { margin-top: 0; }
 .ap-member { display: flex; align-items: center; gap: 0.35rem; color: var(--ap-text); padding: 0.15rem 0; font-size: 0.68rem; }
