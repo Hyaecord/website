@@ -293,6 +293,18 @@ section > h2, .page-title {
 .card:nth-child(3n+3) { border-top-color: var(--card-accent-3); }
 .card .emoji { font-size: 1.6rem; }
 
+.contributor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+.contributor-card img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+.contributor-card h3 { margin: 0; font-size: 0.95rem; }
+
 /* ---------- app preview ----------
    Live renders of Hyaecord's real shell (server rail / channel list / chat
    / member list) — not screenshots — each card a full mini client in one

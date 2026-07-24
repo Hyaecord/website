@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credits — Hyaecord</title>
+  <meta name="description" content="Real GitHub contributors to Hyaecord, plus the open-source projects it's built on." />
+  <link rel="icon" type="image/png" href="/assets/logo-64.png" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="banner">
+    <strong>Alpha</strong> — Hyaecord is in early development. <a href="https://github.com/Hyaecord/hyaecord/releases">Watch for the first release</a> or join the Discord for updates.
+    <button class="banner-close" aria-label="Dismiss announcement" type="button">&times;</button>
+  </div>
+  <nav class="nav" aria-label="Main">
+    <div class="nav-inner">
+      <a class="nav-brand" href="/"><img src="/assets/logo-64.png" alt="" /> Hyaecord</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="/#features">Features</a>
+        <a href="/#pronunciation">Pronunciation</a>
+        <a href="/#download">Download</a>
+        <a href="/docs.html">Docs</a>
+        <a href="/credits.html" aria-current="page">Credits</a>
+        <a href="https://github.com/Hyaecord/hyaecord">GitHub</a>
+        <a class="nav-cta" href="/discord">Join Discord</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="prose prose-wide" id="main">
+    <h1 class="page-title">Credits</h1>
+    <p class="meta">The same list the app itself shows in Settings → Credits — fetched live from GitHub's own API, not hand-maintained.</p>
+
+    <h2>Contributors</h2>
+    <p>Real GitHub contributors to <a href="https://github.com/Hyaecord/hyaecord">Hyaecord/hyaecord</a>, fetched live from GitHub's public API. GitHub only ever gives a GitHub avatar — there's no general way to source a contributor's Discord avatar instead, so that's honestly all that's shown here.</p>
+    <div class="grid" id="contributors-grid" aria-live="polite">
+      <p class="lead">Loading contributors…</p>
+    </div>
+
+    <h2>Stoat helpers</h2>
+    <p id="stoat-helpers-note">No Stoat-specific contributors yet — Stoat support is new. This section is here for real people who help with it in the future, not a placeholder for its own sake.</p>
+
+    <h2>Built on</h2>
+    <p>Hyaecord itself is built on these real open-source projects:</p>
+    <ul>
+      <li><a href="https://electronjs.org">Electron</a> — MIT</li>
+      <li><a href="https://lucide.dev">lucide-static</a> — ISC</li>
+      <li><a href="https://github.com/twitter/twemoji">@twemoji/api</a> — MIT + CC-BY 4.0</li>
+      <li><a href="https://github.com/muan/unicode-emoji-json">unicode-emoji-json</a> — MIT</li>
+      <li><a href="https://github.com/websockets/ws">ws</a> — MIT</li>
+    </ul>
+    <p class="meta">"Discord" and "Stoat" are trademarks of their respective owners. Hyaecord is not affiliated with or endorsed by either.</p>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>
+        <a href="https://github.com/Hyaecord/hyaecord">GitHub</a> ·
+        <a href="/discord">Discord</a> ·
+        <a href="/docs.html">Docs</a> ·
+        <a href="/credits.html">Credits</a> ·
+        <a href="/privacy.html">Privacy</a> ·
+        <a href="/legal.html">Legal</a> ·
+        <a href="https://github.com/Hyaecord/hyaecord/blob/main/LICENSE">Hyaecord Public License</a> ·
+        <a href="https://github.com/Hyaecord/hyaecord/blob/main/TRADEMARK.md">Trademark Policy</a>
+      </p>
+      <p>© 2026 the Hyaecord contributors. Not affiliated with or endorsed by Discord Inc. or the Stoat project.</p>
+    </div>
+  </footer>
+  <script src="/script.js" defer></script>
+  <script>
+    // Same public, unauthenticated, CORS-enabled GitHub contributors
+    // endpoint the app itself calls (src/main/credits.ts) — no backend
+    // needed for a static site, matching this project's existing
+    // zero-hosting-cost approach (see the Theme Store's GitHub-hosted
+    // registry).
+    (function () {
+      var grid = document.getElementById("contributors-grid");
+      fetch("https://api.github.com/repos/Hyaecord/hyaecord/contributors?per_page=50", {
+        headers: { accept: "application/vnd.github+json" }
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error("bad response");
+          return res.json();
+        })
+        .then(function (contributors) {
+          grid.innerHTML = "";
+          contributors
+            .filter(function (c) { return c.type === "User"; })
+            .forEach(function (c) {
+              var card = document.createElement("a");
+              card.className = "card contributor-card";
+              card.href = c.html_url;
+              card.target = "_blank";
+              card.rel = "noreferrer";
+              var img = document.createElement("img");
+              img.src = c.avatar_url;
+              img.alt = "";
+              img.loading = "lazy";
+              var name = document.createElement("h3");
+              name.textContent = c.login;
+              card.appendChild(img);
+              card.appendChild(name);
+              grid.appendChild(card);
+            });
+          if (!grid.children.length) grid.innerHTML = "<p class=\"lead\">No contributors found.</p>";
+        })
+        .catch(function () {
+          grid.innerHTML = "<p class=\"lead\">Couldn't load contributors right now — see the list directly on <a href=\"https://github.com/Hyaecord/hyaecord/graphs/contributors\">GitHub</a>.</p>";
+        });
+    })();
+  </script>
+</body>
+</html>
