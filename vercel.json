@@ -1,7 +1,5 @@
 {
-  "rewrites": [
-    { "source": "/discord", "destination": "/api/discord" }
-  ],
+  "rewrites": [],
   "headers": [
     {
       "source": "/(.*)",
